@@ -90,3 +90,6 @@ jobs:
     # Generate code coverage reports
     - name: Generate code coverage reports
       uses: coverallsapp/github-action@v2
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }} 
+        path-to-lcov: ./LigneCoreTest/TestResults/lcov.info
