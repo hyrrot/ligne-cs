@@ -85,11 +85,11 @@ jobs:
 
     # Execute all unit tests in the solution
     - name: Execute unit tests
-      run: dotnet test
+      run: dotnet test --results-directory ./LigneCoreTest/TestResults
 
     # Generate code coverage reports
     - name: Generate code coverage reports
-      run: reportgenerator -reports:./LigneCoreTest/TestResults/*/coverage.cobertura.xml -targetdir:coveragereport -reporttypes:Html
+      run: reportgenerator -reports:./LigneCoreTest/TestResults/coverage.cobertura.xml -targetdir:coveragereport -reporttypes:Html
 
     # Publish code coverage reports as a GitHub Pages artifact
     - name: Publish code coverage reports
