@@ -85,7 +85,7 @@ jobs:
 
     # Create symlink to the coverage file
     - name: name
-      run: "Get-ChildItem -Path .\TestResults\*\coverage.cobertura.xml -File"
+      run: Get-ChildItem -Path .\TestResults\*\coverage.cobertura.xml -File
 
     # Generate code coverage reports
     - name: Generate code coverage reports
