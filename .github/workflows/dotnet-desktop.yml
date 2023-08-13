@@ -89,7 +89,7 @@ jobs:
 
     # Generate code coverage reports
     - name: Generate code coverage reports
-      run: reportgenerator -reports:./LigneCoreTest/TestResults/coverage.cobertura.xml -targetdir:coveragereport -reporttypes:Html
+      run: reportgenerator -reports:./LigneCoreTest/TestResults/*/coverage.cobertura.xml -targetdir:coveragereport -reporttypes:Html
 
     # Publish code coverage reports as a GitHub Pages artifact
     - name: Publish code coverage reports
