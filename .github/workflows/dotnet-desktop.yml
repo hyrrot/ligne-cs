@@ -81,7 +81,7 @@ jobs:
 
     # Execute all unit tests in the solution
     - name: Execute unit tests
-      run: dotnet test ${{ env.Solution_Name }} --configuration ${{ matrix.configuration }} /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
+      run: dotnet test ${{ env.Solution_Name }} --configuration ${{ matrix.configuration }}
 
     # Execute all unit tests in the solution
     - name: name
