@@ -83,9 +83,17 @@ jobs:
     - name: Execute unit tests
       run: dotnet test --configuration ${{ matrix.configuration }} --results-directory TestResults --collect:"XPlat Code Coverage"
 
-    # Create symlink to the coverage file
-    - name: name
-      run: Get-ChildItem -Path .\TestResults\*\coverage.cobertura.xml -File
+    # Find coverage file
+    - name: Find coverage file
+      id: find-coverage
+      run: |-
+        $file = Get-ChildItem -Path .\TestResults\*\coverage.cobertura.xml -File | Select-Object -First 1
+        if ($file) {
+          echo "::set-output name=coverage_file::$file"
+        } else {
+          echo "No coverage file found"
+          exit 1
+        }
 
     # Generate code coverage reports
     - name: Generate code coverage reports
@@ -93,4 +101,4 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }} 
         format: cobertura
-        file: "./TestResults/*/coverage.cobertura.xml"
+        file: "{{ steps.find-coverage.outputs.coverageFilePath }}"
