@@ -85,7 +85,7 @@ jobs:
 
     # Create symlink to the coverage file
     - name: name
-      run: "bash -c 'ls -lR ; ln -s ./TestResults/*/coverage.cobertura.xml ./TestResults/coverage.cobertura.xml'"
+      run: "bash -c 'ls -lR"
 
     # Generate code coverage reports
     - name: Generate code coverage reports
@@ -93,4 +93,4 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }} 
         format: cobertura
-        file: "./TestResults/coverage.cobertura.xml"
+        file: "./TestResults/*/coverage.cobertura.xml"
