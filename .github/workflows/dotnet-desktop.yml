@@ -89,7 +89,7 @@ jobs:
       run: |-
         $file = Get-ChildItem -Path .\TestResults\*\coverage.cobertura.xml -File | Select-Object -First 1
         if ($file) {
-          echo "::set-output name=coverage_file::$file"
+          echo "::set-output name=coverageFilePath::$file"
         } else {
           echo "No coverage file found"
           exit 1
@@ -101,4 +101,4 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }} 
         format: cobertura
-        file: "{{ steps.find-coverage.outputs.coverageFilePath }}"
+        file: "${{ steps.find-coverage.outputs.coverageFilePath }}"
