@@ -83,9 +83,9 @@ jobs:
     - name: Execute unit tests
       run: dotnet test --configuration ${{ matrix.configuration }} --results-directory TestResults --collect:"XPlat Code Coverage"
 
-    # Execute all unit tests in the solution
+    # Create symlink to the coverage file
     - name: name
-      run: "bash -c \"ls -R\""
+      run: "bash -c \"ln -s ./TestResults/*/coverage.cobertura.xml ./TestResults/coverage.cobertura.xml\""
 
     # Generate code coverage reports
     - name: Generate code coverage reports
@@ -93,4 +93,4 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }} 
         format: cobertura
-        file: ./TestResults/*/coverage.cobertura.xml
+        file: "./TestResults/coverage.cobertura.xml"
