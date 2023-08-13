@@ -89,7 +89,8 @@ jobs:
       run: |-
         $file = Get-ChildItem -Path .\TestResults\*\coverage.cobertura.xml -File | Select-Object -First 1
         if ($file) {
-          echo "::set-output name=coverageFilePath::$file"
+          $unixPath = $file.FullName.Replace('\', '/')
+          echo "::set-output name=coverageFilePath::$unixPath"
         } else {
           echo "No coverage file found"
           exit 1
