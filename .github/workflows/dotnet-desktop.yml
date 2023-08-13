@@ -85,7 +85,7 @@ jobs:
 
     # Create symlink to the coverage file
     - name: name
-      run: "bash -c \"ln -s ./TestResults/*/coverage.cobertura.xml ./TestResults/coverage.cobertura.xml\""
+      run: "bash -c \"ls -lR ; ln -s ./TestResults/*/coverage.cobertura.xml ./TestResults/coverage.cobertura.xml\""
 
     # Generate code coverage reports
     - name: Generate code coverage reports
