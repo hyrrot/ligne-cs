@@ -68,7 +68,7 @@ jobs:
     name: Add release tag
     needs: build
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
+    if: github.ref == 'refs/heads/main'
     steps:
       - name: Get version
         uses: technote-space/get-next-version-action@v1
