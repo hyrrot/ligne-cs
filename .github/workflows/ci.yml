@@ -59,7 +59,8 @@ jobs:
     - uses: actions/cache/save@v3
       with:
         path: .
-        key: LigneCore-${{ matrix.configuration }}
+        key: LigneCore-${{ matrix.configuration }}-${{ github.run_id }}
+        enableCrossOsArchive: true
 
     # Generate code coverage reports
     - name: Generate code coverage reports
@@ -86,7 +87,8 @@ jobs:
         if: steps.release-please.outputs.releases_created == 'true'
         with:
           path: .
-          key: LigneCore-Release
+          key: LigneCore-Release-${{ github.run_id }}
+          enableCrossOsArchive: true
       - uses: actions/upload-release-asset@v1
         if: steps.release-please.outputs.releases_created == 'true'
         with:
