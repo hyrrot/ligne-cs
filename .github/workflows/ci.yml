@@ -77,6 +77,7 @@ jobs:
         uses: technote-space/get-next-version-action@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          prefix: 'v'
       - name: Create tag
         uses: actions/github-script@0.4.0
         with:
@@ -85,7 +86,7 @@ jobs:
             github.git.createRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              ref: `refs/tags/${process.env.NEXT_VERSION}`,
+              ref: `refs/tags/${{ steps.get_next_version.outputs.version }}`,
               sha: context.sha
             })
       - name: Create a release
