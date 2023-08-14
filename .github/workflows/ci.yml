@@ -76,7 +76,7 @@ jobs:
   upload-asset:
     needs: release-please
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' && steps.release-please.outputs.releases_created == 'true'
+    if: "(github.ref == 'refs/heads/main') && (steps.release-please.outputs.releases_created == 'true')"
     steps:
       - uses: actions/upload-release-asset@v1
         with:
