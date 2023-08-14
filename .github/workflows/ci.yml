@@ -65,7 +65,6 @@ jobs:
         format: cobertura
         file: "${{ steps.find-coverage.outputs.coverageFilePath }}"
   release-please:
-    id: release-please
     needs: build
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
