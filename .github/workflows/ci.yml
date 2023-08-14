@@ -65,23 +65,19 @@ jobs:
         format: cobertura
         file: "${{ steps.find-coverage.outputs.coverageFilePath }}"
   release-please:
-    id: release-please
     needs: build
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
-      - uses: google-github-actions/release-please-action@v3
+      - id: release-please
+        uses: google-github-actions/release-please-action@v3
         with:
           release-type: simple
           package-name: ligne
-  upload-asset:
-    needs: release-please
-    id: upload-asset
-    if: github.ref == 'refs/heads/main' && steps.release-please.outputs.releases_created == 'true'
-    steps:
-    - uses: actions/upload-release-asset@v1
-      with:
-        upload_url: ${{ steps.release-please.outputs.upload_url }}
-        asset_path: ./LigneCore/bin/Release/net7.0/LigneCore.dll
-        asset_name: LigneCore.dll
-        asset_content_type: application/x-msdownload
+      - uses: actions/upload-release-asset@v1
+        if: steps.release-please.outputs.releases_created == 'true'
+        with:
+          upload_url: ${{ steps.release-please.outputs.upload_url }}
+          asset_path: ./LigneCore/bin/Release/net7.0/LigneCore.dll
+          asset_name: LigneCore.dll
+          asset_content_type: application/x-msdownload
