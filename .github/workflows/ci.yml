@@ -56,6 +56,10 @@ jobs:
           echo "No coverage file found"
           exit 1
         }
+    - uses: actions/cache@v3
+      with:
+        path: .
+        key: LigneCore-${{ matrix.configuration }}
 
     # Generate code coverage reports
     - name: Generate code coverage reports
@@ -78,6 +82,11 @@ jobs:
         with:
           release-type: simple
           package-name: ligne
+      - uses: actions/cache@v3
+        if: steps.release-please.outputs.releases_created == 'true'
+        with:
+          path: .
+          key: LigneCore-Release
       - uses: actions/upload-release-asset@v1
         if: steps.release-please.outputs.releases_created == 'true'
         with:
