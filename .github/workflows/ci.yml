@@ -66,6 +66,9 @@ jobs:
         file: "${{ steps.find-coverage.outputs.coverageFilePath }}"
   tag:
     name: Add release tag
+    permissions:
+      contents: write
+      packages: write
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
