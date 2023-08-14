@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.3](https://github.com/hyrrot/ligne/compare/v0.0.2...v0.0.3) (2023-08-14)
+
+
+### Bug Fixes
+
+* error in cache ([bc70af8](https://github.com/hyrrot/ligne/commit/bc70af858c2ebc7e90e9dee1fd991368f1600042))
+
 ## [0.0.2](https://github.com/hyrrot/ligne/compare/v0.0.1...v0.0.2) (2023-08-14)
 
 
