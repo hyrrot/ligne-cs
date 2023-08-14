@@ -69,16 +69,13 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
-      - uses: google-github-actions/release-please-action@v3
+      - id: release-please
+        uses: google-github-actions/release-please-action@v3
         with:
           release-type: simple
           package-name: ligne
-  upload-asset:
-    needs: release-please
-    runs-on: ubuntu-latest
-    if: "(github.ref == 'refs/heads/main') && (steps.release-please.outputs.releases_created == 'true')"
-    steps:
       - uses: actions/upload-release-asset@v1
+        if: steps.release-please.outputs.releases_created == 'true'
         with:
           upload_url: ${{ steps.release-please.outputs.upload_url }}
           asset_path: ./LigneCore/bin/Release/net7.0/LigneCore.dll
