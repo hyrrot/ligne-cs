@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.2](https://github.com/hyrrot/ligne/compare/v0.0.1...v0.0.2) (2023-08-14)
+
+
+### Bug Fixes
+
+* a ([2c8f014](https://github.com/hyrrot/ligne/commit/2c8f01440240f819a69c95d47ea1fa4624f28a0d))
+
 ## [0.0.1](https://github.com/hyrrot/ligne/compare/v0.0.1...v0.0.1) (2023-08-14)
 
 
