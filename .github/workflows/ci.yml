@@ -95,6 +95,6 @@ jobs:
         if: steps.release-please.outputs.releases_created == 'true'
         with:
           upload_url: ${{ steps.release-please.outputs.upload_url }}
-          asset_path: ./LigneCore/bin/Release/net7.0/LigneCore.dll
+          asset_path: ./LigneCore/LigneCore/bin/Release/net7.0/LigneCore.dll
           asset_name: LigneCore.dll
           asset_content_type: application/x-msdownload
