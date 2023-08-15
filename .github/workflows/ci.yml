@@ -10,10 +10,10 @@ jobs:
   build:
     defaults:
       run:
-        working-directory: LigneCore
+        working-directory: src/LigneCore
     strategy:
       matrix:
-        configuration: [Release]
+        configuration: [Debug, Release]
 
     runs-on: windows-latest  # For a list of available runner types, refer to
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
@@ -21,8 +21,6 @@ jobs:
     env:
       Solution_Name: LigneCore                         # Replace with your solution name, i.e. MyWpfApp.sln.
       Test_Project_Path: LigneCoreTest                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
-      Wap_Project_Directory: your-wap-project-directory-name    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
-      Wap_Project_Path: your-wap-project-path                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
 
     steps:
     - name: Checkout
@@ -97,6 +95,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.release-please.outputs.upload_url }}
-          asset_path: ./LigneCore/LigneCore/bin/Release/net7.0/LigneCore.dll
+          asset_path: ./src/LigneCore/LigneCore/bin/Release/net7.0/LigneCore.dll
           asset_name: LigneCore.dll
           asset_content_type: application/x-msdownload
