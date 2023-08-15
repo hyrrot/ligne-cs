@@ -89,6 +89,8 @@ jobs:
           path: .
           key: LigneCore-Release-${{ github.run_id }}
           enableCrossOsArchive: true
+      - run: |-
+          ls -lR
       - uses: actions/upload-release-asset@v1
         if: steps.release-please.outputs.releases_created == 'true'
         with:
