@@ -93,9 +93,10 @@ jobs:
           ls -lR
       - uses: actions/upload-release-asset@v1
         if: steps.release-please.outputs.releases_created == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.release-please.outputs.upload_url }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
           asset_path: ./LigneCore/LigneCore/bin/Release/net7.0/LigneCore.dll
           asset_name: LigneCore.dll
           asset_content_type: application/x-msdownload
