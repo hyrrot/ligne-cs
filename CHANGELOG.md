@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.6](https://github.com/hyrrot/ligne/compare/v0.0.5...v0.0.6) (2023-08-15)
+
+
+### Bug Fixes
+
+* ci.yml ([0e7cf8c](https://github.com/hyrrot/ligne/commit/0e7cf8c0a1a7b1253e9c8b73706333b35554a342))
+
 ## [0.0.5](https://github.com/hyrrot/ligne/compare/v0.0.4...v0.0.5) (2023-08-15)
 
 
