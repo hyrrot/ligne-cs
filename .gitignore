@@ -402,3 +402,6 @@ FodyWeavers.xsd
 
 # Coverage Reports
 coveragereport/
+
+# Build artifacts of docs
+docs/build/
